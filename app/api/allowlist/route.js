@@ -3,6 +3,9 @@ import { NextResponse } from "next/server";
 // ============================================================
 // SETUP — Google Apps Script web app
 //
+// Sheet columns (add these as a header row):
+//   Timestamp | Email | Faction | Social | Proof Link | Wallet | Raider ID
+//
 // 1. Open your Google Sheet → Extensions → Apps Script
 // 2. Paste the script below and save it:
 //
@@ -20,7 +23,10 @@ import { NextResponse } from "next/server";
 //           .createTextOutput(JSON.stringify({ status: "duplicate" }))
 //           .setMimeType(ContentService.MimeType.JSON);
 //       }
-//       sheet.appendRow([data.timestamp, data.email, data.faction, data.social, data.raiderId]);
+//       sheet.appendRow([
+//         data.timestamp, data.email, data.faction, data.social,
+//         data.proofLink, data.wallet, data.raiderId
+//       ]);
 //       return ContentService
 //         .createTextOutput(JSON.stringify({ status: "ok" }))
 //         .setMimeType(ContentService.MimeType.JSON);
@@ -86,12 +92,12 @@ export async function POST(req) {
     return NextResponse.json({ ok: false, error: "Invalid payload." }, { status: 400 });
   }
 
-  const { email, faction, social } = body ?? {};
+  const { email, faction, social, proofLink, wallet } = body ?? {};
   const validEmail =
     typeof email === "string" && /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email.trim());
-  if (!validEmail || !faction) {
+  if (!validEmail || !faction || !proofLink || !wallet) {
     return NextResponse.json(
-      { ok: false, error: "Email and faction are required." },
+      { ok: false, error: "Email, faction, proof link, and wallet are required." },
       { status: 422 }
     );
   }
@@ -114,6 +120,8 @@ export async function POST(req) {
         email: email.trim().toLowerCase(),
         faction,
         social: social?.trim() ?? "",
+        proofLink: proofLink.trim(),
+        wallet: wallet.trim(),
         raiderId,
         timestamp: new Date().toISOString(),
       }),

@@ -180,6 +180,45 @@ h1 .nx{color:transparent;-webkit-text-stroke:1.4px var(--cyan)}
 .submit:hover{background:#ff8c47;box-shadow:0 0 30px rgba(255,122,46,.45)}
 .submit:disabled{opacity:.5;cursor:not-allowed;box-shadow:none}
 .err{color:var(--storm);font-family:var(--mono);font-size:12px;margin-top:12px;min-height:16px}
+
+/* ---------- x tasks ---------- */
+.tasks-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
+.tasks-label{font-family:var(--mono);font-size:11px;letter-spacing:.12em;color:var(--muted);text-transform:uppercase}
+.tasks-count{font-family:var(--mono);font-size:11px;color:var(--accent)}
+.task-list{border:1px solid var(--line);margin-bottom:18px}
+.task-row{display:flex;align-items:center;gap:12px;padding:12px 14px;
+  border-bottom:1px solid var(--line);transition:.15s}
+.task-row:last-child{border-bottom:0}
+.task-row.done{background:rgba(54,217,122,.04)}
+.task-check{width:22px;height:22px;flex-shrink:0;border:1.5px solid var(--line2);
+  background:#060a13;color:#36d97a;font-size:13px;font-family:var(--mono);
+  cursor:pointer;display:flex;align-items:center;justify-content:center;transition:.15s;padding:0}
+.task-row.done .task-check{border-color:#36d97a;background:rgba(54,217,122,.1)}
+.task-label{flex:1;font-family:var(--mono);font-size:12px;color:var(--muted)}
+.task-row.done .task-label{color:var(--ink)}
+.task-link{font-family:var(--mono);font-size:11px;letter-spacing:.05em;color:var(--accent);
+  border:1px solid var(--line2);padding:5px 10px;white-space:nowrap;transition:.15s}
+.task-link:hover{border-color:var(--accent);background:rgba(87,208,240,.06)}
+.field-reveal{animation:revealField .3s ease}
+@keyframes revealField{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+
+/* ---------- referral block ---------- */
+.ref-block{margin:24px auto 0;max-width:480px;text-align:left;
+  border:1px solid var(--line2);padding:20px 22px;background:rgba(10,16,28,.6)}
+.ref-label{font-family:var(--mono);font-size:10px;letter-spacing:.2em;color:var(--faint);
+  text-transform:uppercase;margin-bottom:10px}
+.ref-row{display:flex;margin-bottom:10px}
+.ref-input{flex:1;background:#060a13;border:1px solid var(--line2);border-right:0;
+  color:var(--ink);font-family:var(--mono);font-size:12px;padding:10px 12px;
+  outline:none;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:0}
+.ref-copy{font-family:var(--mono);font-size:12px;letter-spacing:.05em;
+  border:1px solid var(--line2);background:var(--panel2);color:var(--muted);
+  padding:10px 16px;cursor:pointer;transition:.15s;white-space:nowrap;flex-shrink:0}
+.ref-copy:hover{color:var(--ink);border-color:var(--accent)}
+.ref-hint{font-family:var(--mono);font-size:10.5px;color:var(--faint);margin-bottom:12px;line-height:1.5}
+.ref-x{display:inline-block;font-family:var(--mono);font-size:12px;letter-spacing:.06em;
+  color:var(--accent);border:1px solid var(--line2);padding:8px 16px;transition:.15s}
+.ref-x:hover{border-color:var(--accent);background:rgba(87,208,240,.06)}
 .aside-h{font-family:var(--display);font-weight:600;letter-spacing:.06em;font-size:14px;text-transform:uppercase;
   color:var(--muted);margin:0 0 16px}
 .aline{display:flex;gap:11px;font-size:13px;color:var(--muted);margin-bottom:13px;line-height:1.4}
