@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 
 export const runtime = "edge";
-export const alt = "ScavRaiders — Genesis Allowlist | The Scrap Nexus";
+export const alt = "ScavRaiders — Founding Allowlist | The Scrap Nexus";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -62,7 +62,7 @@ export default function OGImage() {
             display: "flex",
           }}
         >
-          GENESIS COLLECTION · EXTRACTION SURVIVAL
+          FOUNDING COLLECTION · EXTRACTION SURVIVAL
         </div>
 
         {/* Brand */}
@@ -108,7 +108,7 @@ export default function OGImage() {
             display: "flex",
           }}
         >
-          Choose your home world. Awaken a faction. Reserve your Genesis license.
+          Choose your home world. Awaken a faction. Reserve your Founding license.
         </div>
 
         {/* Divider */}
@@ -125,7 +125,7 @@ export default function OGImage() {
         {/* Stats row */}
         <div style={{ display: "flex", gap: 64 }}>
           {[
-            ["2,500", "Genesis Supply"],
+            ["2,500", "Founding Supply"],
             ["4", "Founding Worlds"],
             ["0%", "Holder Trade Fees"],
           ].map(([n, l]) => (

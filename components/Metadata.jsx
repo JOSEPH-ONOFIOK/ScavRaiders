@@ -74,7 +74,7 @@ export default function Metadata() {
           <div className="meta-copy">
             <div className="tag">Dynamic on-chain identity</div>
             <p>
-              A Genesis license isn&rsquo;t a static picture. Every milestone you reach in a raid is written
+              A Founding license isn&rsquo;t a static picture. Every milestone you reach in a raid is written
               into your token&rsquo;s history. A veteran Shadowcat with 300+ extractions reads differently than
               a fresh mint — the story is baked into the asset, not bolted on.
             </p>

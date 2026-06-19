@@ -43,15 +43,13 @@ export default function Page() {
         </div>
 
         <div className="hero-overlay">
-          <div className="eyebrow">GENESIS COLLECTION · EXTRACTION SURVIVAL</div>
           <h1>
             Choose Your
             <br />
             <span className="nx">Home World</span>
           </h1>
           <p className="lede">
-            Four founding worlds drift in the Scrap Nexus. Select a planet to awaken its faction and open
-            your Genesis registration. Dive. Loot. Extract.
+            Select a world to awaken its faction and reserve your Founding slot.
           </p>
           <div className="hero-status">
             {fac ? (
@@ -70,15 +68,11 @@ export default function Page() {
         <div className="spots">
           <div className="spot">
             <div className="n">2,500</div>
-            <div className="l">Genesis supply</div>
+            <div className="l">Founding supply</div>
           </div>
           <div className="spot">
             <div className="n warm">{spots !== null ? spots.toLocaleString() : "1,914"}</div>
             <div className="l">Spots remaining</div>
-          </div>
-          <div className="spot">
-            <div className="n">4</div>
-            <div className="l">Founding worlds</div>
           </div>
           <div className="spot">
             <div className="n">0%</div>

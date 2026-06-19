@@ -7,7 +7,7 @@ import { FACTIONS, byId } from "@/lib/factions";
 const X_HANDLE = "ScavRaiders";
 // Replace YOUR_TWEET_ID with the actual announcement tweet ID once posted
 const TWEET_URL = "https://x.com/ScavRaiders/status/YOUR_TWEET_ID";
-const QUOTE_TEXT = `Joining @${X_HANDLE} Genesis — choosing my faction in the Scrap Nexus. Come raid with me 🛸\n\nTagging: @`;
+const QUOTE_TEXT = `Joining @${X_HANDLE} Founding — choosing my faction in the Scrap Nexus. Come raid with me 🛸\n\nTagging: @`;
 // ────────────────────────────────────────────────────────────────────────────
 
 const TASKS = [
@@ -139,7 +139,7 @@ export default function Console({ selected, onSelect }) {
         <div className="sec-head">
           <span className="sec-num">01 /</span>
           <h2 className="sec-title">Insertion Console</h2>
-          <span className="sec-sub">// reserve your Genesis slot</span>
+          <span className="sec-sub">// reserve your Founding slot</span>
         </div>
 
         <div className="console" style={{ "--accent": accent }}>
@@ -293,7 +293,7 @@ export default function Console({ selected, onSelect }) {
                       spellCheck={false}
                     />
                     <div className="hint">
-                      The wallet that will receive your Genesis license at mint.
+                      The wallet that will receive your Founding license at mint.
                     </div>
                   </div>
                 )}
@@ -375,7 +375,7 @@ export default function Console({ selected, onSelect }) {
                 <a
                   className="ref-x"
                   href={`https://x.com/intent/tweet?text=${encodeURIComponent(
-                    `Just locked my Genesis slot in @${X_HANDLE} 🛸\n\nJoin me in the Scrap Nexus → ${confirmed.refLink}`
+                    `Just locked my Founding slot in @${X_HANDLE} 🛸\n\nJoin me in the Scrap Nexus → ${confirmed.refLink}`
                   )}`}
                   target="_blank"
                   rel="noopener noreferrer"

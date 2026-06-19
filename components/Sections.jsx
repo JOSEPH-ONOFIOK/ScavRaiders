@@ -16,7 +16,7 @@ export function StatusBar() {
         <span className="sbtag">
           <span className="live">●</span> ALLOWLIST OPEN
         </span>
-        <span className="sbtag dim">GENESIS · 2,500 LICENSES · PHASE 01</span>
+        <span className="sbtag dim">FOUNDING · 2,500 LICENSES · PHASE 01</span>
         <nav className={open ? "open" : ""}>
           <a href="#join" onClick={() => setOpen(false)}>Allowlist</a>
           <a href="#factions" onClick={() => setOpen(false)}>Factions</a>
@@ -44,7 +44,7 @@ export function Factions() {
         <div className="sec-head">
           <span className="sec-num">02 /</span>
           <h2 className="sec-title">The Four Founding Factions</h2>
-          <span className="sec-sub">// every Genesis mint awakens one</span>
+          <span className="sec-sub">// every Founding mint awakens one</span>
         </div>
 
         <div className="crew-band">
@@ -76,7 +76,7 @@ export function Factions() {
 }
 
 const PERKS = [
-  ["P.01", "Genesis Licenses", "Own a fully playable founding character from Day One, tradable on native platforms with 0% fees."],
+  ["P.01", "Founding Licenses", "Own a fully playable founding character from Day One, tradable on native platforms with 0% fees."],
   ["P.02", "Alpha Access", "Immediate entry to closed pre-alpha and every core playtest as the game is built around you."],
   ["P.03", "Governance", "Vote on sector drops, weapon balance and lore expansions. Holders steer where the Nexus grows."],
   ["P.04", "Exclusive Cosmetics", "Genesis-only skins and crew customization that can't be earned or minted after the drop closes."],
@@ -108,9 +108,9 @@ export function Perks() {
 }
 
 const PHASES = [
-  ["● PHASE 01 — NOW", "Allowlist", "Build the founding crew. 2,500-slot Genesis list opens; community forms.", true],
+  ["● PHASE 01 — NOW", "Allowlist", "Build the founding crew. 2,500-slot Founding list opens; community forms.", true],
   ["PHASE 02", "Closed Pre-Alpha", "Allowlist plays the raid loop. Feedback drives balance before any mint.", false],
-  ["PHASE 03", "Genesis Mint", "Licenses go live to the list first, then public. Dynamic metadata switches on.", false],
+  ["PHASE 03", "Founding Mint", "Licenses go live to the list first, then public. Dynamic metadata switches on.", false],
   ["PHASE 04", "F2P Launch", "Free starter characters open the Nexus to everyone. The economy goes live.", false],
 ];
 

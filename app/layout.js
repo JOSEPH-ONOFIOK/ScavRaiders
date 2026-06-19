@@ -1,12 +1,12 @@
 import "./globals.css";
 
 export const metadata = {
-  title: "ScavRaiders — Genesis Allowlist | The Scrap Nexus",
+  title: "ScavRaiders — Founding Allowlist | The Scrap Nexus",
   description:
-    "Choose your home world in the Scrap Nexus and reserve a Genesis ScavRaider license. A playable, evolving extraction-survival character you truly own. Allowlist open.",
+    "Choose your home world in the Scrap Nexus and reserve a Founding ScavRaider license. A playable, evolving extraction-survival character you truly own. Allowlist open.",
   openGraph: {
-    title: "ScavRaiders — Genesis Allowlist",
-    description: "Select a world. Awaken a faction. Reserve your Genesis license.",
+    title: "ScavRaiders — Founding Allowlist",
+    description: "Select a world. Awaken a faction. Reserve your Founding license.",
     type: "website",
   },
 };
