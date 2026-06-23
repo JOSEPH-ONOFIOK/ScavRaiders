@@ -2,9 +2,8 @@
 
 import { useState, useEffect } from "react";
 import dynamic from "next/dynamic";
-import { StatusBar, Factions, Perks, Roadmap, Footer } from "@/components/Sections";
+import { StatusBar, Footer } from "@/components/Sections";
 import Console from "@/components/Console";
-import Metadata from "@/components/Metadata";
 import { byId } from "@/lib/factions";
 
 // 3D galaxy is client-only (WebGL) — never server-rendered.
@@ -82,10 +81,6 @@ export default function Page() {
       </div>
 
       <Console selected={selected} onSelect={handleSelect} />
-      <Factions />
-      <Metadata />
-      <Perks />
-      <Roadmap />
       <Footer />
     </>
   );

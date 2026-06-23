@@ -2,10 +2,19 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { FACTIONS } from "@/lib/factions";
 
 export function StatusBar() {
   const [open, setOpen] = useState(false);
+  const pathname = usePathname();
+
+  const isActive = (href) => {
+    const path = href.split("#")[0] || "/";
+    return path === "/" ? pathname === "/" : pathname === path;
+  };
+
   return (
     <header className="statusbar">
       <div className="wrap">
@@ -18,11 +27,11 @@ export function StatusBar() {
         </span>
         <span className="sbtag dim">FOUNDING · 2,500 LICENSES · PHASE 01</span>
         <nav className={open ? "open" : ""}>
-          <a href="#join" onClick={() => setOpen(false)}>Allowlist</a>
-          <a href="#factions" onClick={() => setOpen(false)}>Factions</a>
-          <a href="#meta" onClick={() => setOpen(false)}>Metadata</a>
-          <a href="#perks" onClick={() => setOpen(false)}>Perks</a>
-          <a href="#roadmap" onClick={() => setOpen(false)}>Roadmap</a>
+          <Link href="/#join" className={isActive("/") ? "active" : ""} onClick={() => setOpen(false)}>Allowlist</Link>
+          <Link href="/factions" className={isActive("/factions") ? "active" : ""} onClick={() => setOpen(false)}>Factions</Link>
+          <Link href="/metadata" className={isActive("/metadata") ? "active" : ""} onClick={() => setOpen(false)}>Metadata</Link>
+          <Link href="/perks" className={isActive("/perks") ? "active" : ""} onClick={() => setOpen(false)}>Perks</Link>
+          <Link href="/roadmap" className={isActive("/roadmap") ? "active" : ""} onClick={() => setOpen(false)}>Roadmap</Link>
         </nav>
         <button
           className="nav-toggle"
@@ -37,6 +46,33 @@ export function StatusBar() {
   );
 }
 
+function FactionCard({ f }) {
+  const [flipped, setFlipped] = useState(false);
+  return (
+    <div className="fcard" style={{ "--fc": f.color }} onClick={() => setFlipped((v) => !v)}>
+      <div className={`fcard-inner${flipped ? " flipped" : ""}`}>
+        <div className="fcard-front">
+          <div className="role">{f.role}</div>
+          <h3>{f.name}</h3>
+          <div className="world-tag">HOME WORLD · {f.world}</div>
+          <div className="sub">{f.blurb}</div>
+          <div className="trait">
+            <span>SAMPLE TRAIT ›</span> {f.trait}
+          </div>
+          <div className="flip-hint">TAP TO REVEAL ›</div>
+        </div>
+        <div className="fcard-back">
+          <div className="back-label">// CLASSIFIED INTEL</div>
+          <div className="back-name">{f.name}</div>
+          <div className="back-lore">{f.lore}</div>
+          <div className="back-play">{f.playstyle}</div>
+          <div className="flip-hint">‹ TAP TO FLIP BACK</div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export function Factions() {
   return (
     <section id="factions" className="section">
@@ -44,7 +80,7 @@ export function Factions() {
         <div className="sec-head">
           <span className="sec-num">02 /</span>
           <h2 className="sec-title">The Four Founding Factions</h2>
-          <span className="sec-sub">// every Founding mint awakens one</span>
+          <span className="sec-sub">// every Founding mint awakens one · tap a card</span>
         </div>
 
         <div className="crew-band">
@@ -59,15 +95,7 @@ export function Factions() {
 
         <div className="fac-grid">
           {FACTIONS.map((f) => (
-            <div className="fcard" key={f.id} style={{ "--fc": f.color }}>
-              <div className="role">{f.role}</div>
-              <h3>{f.name}</h3>
-              <div className="world-tag">HOME WORLD · {f.world}</div>
-              <div className="sub">{f.blurb}</div>
-              <div className="trait">
-                <span>SAMPLE TRAIT ›</span> {f.trait}
-              </div>
-            </div>
+            <FactionCard key={f.id} f={f} />
           ))}
         </div>
       </div>
@@ -146,7 +174,6 @@ export function Footer() {
         </div>
         <div className="philo-sub">— THE SCAVRAIDERS PHILOSOPHY —</div>
         <div className="fsocial">
-          {/* Replace # with your actual URLs before launch */}
           <a href="https://x.com/scavraiders" target="_blank" rel="noopener noreferrer" aria-label="X / Twitter">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.747l7.73-8.835L1.254 2.25H8.08l4.261 5.632 5.903-5.632zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
           </a>
@@ -157,9 +184,11 @@ export function Footer() {
         <div className="fbottom">
           <span>© 2026 SCAVRAIDERS · THE SCRAP NEXUS</span>
           <div className="links">
-            <a href="#join">Allowlist</a>
-            <a href="#factions">Factions</a>
-            <a href="#roadmap">Roadmap</a>
+            <Link href="/#join">Allowlist</Link>
+            <Link href="/factions">Factions</Link>
+            <Link href="/metadata">Metadata</Link>
+            <Link href="/perks">Perks</Link>
+            <Link href="/roadmap">Roadmap</Link>
           </div>
         </div>
         <p className="disclaimer">

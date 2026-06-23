@@ -1,4 +1,5 @@
 import "./globals.css";
+import ScrollToTop from "@/components/ScrollToTop";
 
 export const metadata = {
   title: "ScavRaiders — Founding Allowlist | The Scrap Nexus",
@@ -27,7 +28,7 @@ export default function RootLayout({ children }) {
           rel="stylesheet"
         />
       </head>
-      <body>{children}</body>
+      <body><ScrollToTop />{children}</body>
     </html>
   );
 }
